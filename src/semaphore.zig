@@ -5,7 +5,7 @@ const os = std.os;
 const testing = std.testing;
 
 const c = switch (builtin.os.tag) {
-    .linux, .freebsd => @cImport({
+    .linux, .netbsd, .openbsd, .freebsd => @cImport({
         @cInclude("semaphore.h");
     }),
     else =>
